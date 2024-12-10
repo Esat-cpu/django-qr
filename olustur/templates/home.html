@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'assets/favicon.ico' %}">
+    <title>{{ titlemz }}</title>
+</head>
+<body>
+    <h1>QR Kod Oluştur</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="link">URL Adresi Girin:</label>
+        <input type="text" name="link" required>
+        <button type="submit">Oluştur</button>
+    </form>
+
+    {% if qrkod %}
+        <h3>İşte QR Kodunuz</h3>
+        <img src="data:image/png;base64,{{ qrkod }}" alt="QR Kod">
+    {% endif %}
+</body>
+</html>
