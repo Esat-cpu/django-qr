@@ -2,8 +2,6 @@
 *.pyo
 __pycache__
 
-qryap/settings.py
-
 .env
 
 db.sqlite3
