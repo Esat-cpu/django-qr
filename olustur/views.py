@@ -17,4 +17,4 @@ def home(request):
         context['qrkod'] = img64
         buffer.close()
 
-    return render(request, "home.html", context)
+    return render(request, "olustur/home.html", context)
