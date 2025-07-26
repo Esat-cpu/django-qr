@@ -4,8 +4,7 @@ from io import BytesIO
 import base64
 
 def home(request):
-    context = { "titlemz": "QR Kod Oluşturucu" }
-
+    context = {}
     if request.method == "POST":
         link = request.POST.get("link")
         img = Qr(url= link)
