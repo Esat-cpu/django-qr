@@ -1,0 +1,19 @@
+header {
+  background-color: #101415;
+  color: white;
+  padding: 3px;
+  font: italic 1.2rem "Fira Sans", serif;
+}
+
+header a {
+text-decoration: none; /* Alt çizgiyi kaldırır */
+color: #fbfff4; /* Yazı rengini siyah yapar */
+}
+
+header a:visited {
+color: #fbfff4; /* Ziyaret edilmiş link rengi */
+}
+
+header a:hover {
+color: gray; /* Üzerine gelince istersen bir renk değişimi */
+}
