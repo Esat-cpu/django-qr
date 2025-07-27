@@ -21,6 +21,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("olustur.urls")),
+    path('register/', include("users.urls")),
 ]
 
 if settings.ENABLE_DEBUG_TOOLBAR:
