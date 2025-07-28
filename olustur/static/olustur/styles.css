@@ -1,19 +1,25 @@
-header {
-  background-color: #101415;
-  color: white;
-  padding: 3px;
-  font: italic 1.2rem "Fira Sans", serif;
+.navbar {
+  background-color: #101415 !important;
+  font-family: "Fira Sans", serif;
+  font-style: italic;
 }
 
-header a {
-text-decoration: none; /* Alt çizgiyi kaldırır */
-color: #fbfff4; /* Yazı rengini siyah yapar */
+.navbar-brand {
+  font-size: 2rem !important;
+  color: #fbfff4 !important;
+  text-decoration: none;
 }
 
-header a:visited {
-color: #fbfff4; /* Ziyaret edilmiş link rengi */
+.navbar-brand:hover {
+  color: #fbfff4 !important;
 }
 
-header a:hover {
-color: gray; /* Üzerine gelince istersen bir renk değişimi */
+.navbar .btn-outline-light {
+  border-color: #fbfff4;
+  color: #fbfff4;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #fbfff4;
+  color: #101415;
 }

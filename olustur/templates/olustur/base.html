@@ -10,9 +10,26 @@
     {% block title %} {% endblock %}
 </head>
 <body>
-    <header>
-            <h1 class="text-center"><a href="{% url 'olustur:home' %}">Home</a></h1>
-    </header>
+    <nav class="navbar navbar-dark p-1">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'olustur:home' %}">Home</a>
+
+            {% if user.is_authenticated %}
+                <div class="ms-auto d-flex align-items-center gap-2">
+                    <span class="text-light">{{ user }}</span>
+                    <form action="{% url 'logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light btn-sm">Çıkış Yap</button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="ms-auto d-flex gap-2">
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm">Giriş Yap</a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-light btn-sm">Üye Ol</a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
 
     <div class="container">
         {% if messages %}

@@ -1,9 +1,9 @@
 {% extends 'olustur/base.html' %}
 
-{% block title %} <title>QR Kod Oluşturucu</title> {% endblock title %}
+{% block title %} <title>QR Kod Oluştur</title> {% endblock title %}
 
 {% block content %}
-    <h1>QR Kod Oluştur</h1>
+    <h2>QR Kod Oluştur</h2>
     <form method="POST">
         {% csrf_token %}
         <label for="link">URL Adresi Girin:</label>

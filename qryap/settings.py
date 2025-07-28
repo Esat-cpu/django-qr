@@ -155,3 +155,5 @@ if ENABLE_DEBUG_TOOLBAR:
     MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware",]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = "olustur:home"
