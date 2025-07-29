@@ -16,7 +16,7 @@
 
             {% if user.is_authenticated %}
                 <div class="ms-auto d-flex align-items-center gap-2">
-                    <span class="text-light">{{ user }}</span>
+                    <a href="{% url 'profile' %}"><span class="text-light">{{ user.username }}</span></a>
                     <form action="{% url 'logout' %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-outline-light btn-sm">Çıkış Yap</button>

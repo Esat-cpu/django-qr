@@ -17,3 +17,7 @@ def home(request):
         buffer.close()
 
     return render(request, "olustur/home.html", context)
+
+
+def custom_404(request, exception):
+    return render(request, 'olustur/404.html', status=404)

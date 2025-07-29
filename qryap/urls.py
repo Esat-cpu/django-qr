@@ -26,8 +26,12 @@ urlpatterns = [
     path('register/', users_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('profile/', users_views.ProfileView.as_view(), name='profile'),
+    path('url/delete/<int:pk>', users_views.url_delete, name='url_delete'),
     path('', include("olustur.urls")),
 ]
+
+handler404 = "olustur.views.custom_404"
 
 if settings.ENABLE_DEBUG_TOOLBAR:
     from debug_toolbar.toolbar import debug_toolbar_urls

@@ -140,6 +140,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     'static/',
+    'olustur/static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
