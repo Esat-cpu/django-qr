@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 
 from .forms import UserRegisterForm
-from .models import URLs
+from olustur.models import URLs
 
 
 def register(request):
@@ -13,7 +13,6 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get("username")
             messages.success(request, f"Hesabınız başarıyla oluşturuldu! Artı giriş yapabilirsiniz.")
             return redirect('login')
     else:

@@ -31,5 +31,5 @@ class HomeTests(TestCase):
         """
         url = "deneme/deneme/deneme"
         url64 = kodu_base64_al(url)
-        response = self.client.post(reverse("olustur:home"), {"link": url})
+        response = self.client.post(reverse("olustur:home"), {"url": url})
         self.assertEqual(response.context["qrkod"], url64)

@@ -1,12 +1,24 @@
-from django.shortcuts import render
-from .utils import Qr
 from io import BytesIO
 import base64
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+from .utils import Qr
+from .forms import UrlForm
+from .models import URLs
 
 def home(request):
     context = {}
     if request.method == "POST":
-        link = request.POST.get("link")
+        form = UrlForm(request.POST)
+        if form.is_valid():
+            link = form.cleaned_data['url']
+            if request.user.is_authenticated:
+                URLs.objects.create(url=link, author=request.user)
+        else:
+            messages.error(request, form.errors)
+            return redirect("olustur:home")
+
         img = Qr(url= link)
 
         buffer = BytesIO()
