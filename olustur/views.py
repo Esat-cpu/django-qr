@@ -1,6 +1,7 @@
 from io import BytesIO
 import base64
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .utils import Qr
@@ -32,8 +33,9 @@ def home(request):
     return render(request, "olustur/home.html", context)
 
 
+@login_required
 def home_with_form(request, pk):
-    url = get_object_or_404(URLs, pk=pk)
+    url = get_object_or_404(URLs, pk=pk, author=request.user)
     return render(request, "olustur/home.html", {"special_url": url.url})
 
 
