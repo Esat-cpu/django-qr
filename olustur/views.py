@@ -1,11 +1,12 @@
 from io import BytesIO
 import base64
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from .utils import Qr
 from .forms import UrlForm
 from .models import URLs
+
 
 def home(request):
     context = {}
@@ -29,6 +30,11 @@ def home(request):
         buffer.close()
 
     return render(request, "olustur/home.html", context)
+
+
+def home_with_form(request, pk):
+    url = get_object_or_404(URLs, pk=pk)
+    return render(request, "olustur/home.html", {"special_url": url.url})
 
 
 def custom_404(request, exception):

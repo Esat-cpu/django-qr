@@ -4,10 +4,14 @@
 
 {% block content %}
     <h2>QR Kod Oluştur</h2>
-    <form method="POST">
+    <form method="POST" action="{% url 'olustur:home' %}">
         {% csrf_token %}
         <label for="link">URL Adresi Girin:</label>
-        <input type="text" name="url" required>
+        {% if special_url %}
+            <input type="text" name="url" value="{{ special_url }}" required>
+        {% else %}
+            <input type="text" name="url" required>
+        {% endif %}
         <button type="submit">Oluştur</button>
     </form>
 
