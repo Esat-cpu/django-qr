@@ -158,3 +158,4 @@ if ENABLE_DEBUG_TOOLBAR:
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = "olustur:home"
+LOGIN_URL = "login"
