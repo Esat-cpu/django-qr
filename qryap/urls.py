@@ -29,6 +29,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', users_views.ProfileView.as_view(), name='profile'),
     path('url/delete/<int:pk>', users_views.url_delete, name='url_delete'),
+    path('profile/update/', users_views.profile_update, name='profile_update'),
     path('', include("olustur.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

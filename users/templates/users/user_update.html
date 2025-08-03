@@ -1,0 +1,20 @@
+{% extends 'olustur/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} <title>QR Oluştur - Profilinizi Güncelleyin</title> {% endblock title %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-botton mb-4">Profilinizi Güncelleyin</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Kaydet</button>
+                </div> 
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
