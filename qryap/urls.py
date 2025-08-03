@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from users import views as users_views
@@ -29,7 +30,7 @@ urlpatterns = [
     path('profile/', users_views.ProfileView.as_view(), name='profile'),
     path('url/delete/<int:pk>', users_views.url_delete, name='url_delete'),
     path('', include("olustur.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "olustur.views.custom_404"
 
