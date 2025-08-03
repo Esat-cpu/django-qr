@@ -21,7 +21,14 @@ def home(request):
             messages.error(request, form.errors)
             return redirect("olustur:home")
 
-        img = Qr(url= link)
+        ozellik = (request.POST.get("ozellik") == "ozel")
+
+        if ozellik and request.user.is_authenticated:
+            img = Qr(url= link, img_path=request.user.profile.image.path)
+        elif ozellik:
+            img = Qr(url= link, img_path="media/default.jpg")
+        else:
+            img = Qr(url= link)
 
         buffer = BytesIO()
         img.save(buffer, format= "PNG")

@@ -4,16 +4,25 @@
 
 {% block content %}
     <h2>QR Kod Oluştur</h2>
-    <form method="POST" action="{% url 'olustur:home' %}">
+    <form method="POST" action="{% url 'olustur:home' %}" style="display: flex; flex-direction: column; gap: 0.5rem;">
         {% csrf_token %}
         <label for="link">URL Adresi Girin:</label>
-        {% if special_url %}
-            <input type="text" name="url" value="{{ special_url }}" required>
-        {% else %}
-            <input type="text" name="url" required>
-        {% endif %}
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            {% if special_url %}
+                <input type="text" name="url" value="{{ special_url }}" required style="flex: 1;">
+            {% else %}
+                <input type="text" name="url" required style="flex: 1;">
+            {% endif %}
+
+            <select name="ozellik" style="height: 100%; padding: 0.3rem;">
+                <option value="genel">Genel</option>
+                <option value="ozel">Özel</option>
+            </select>
+        </div>
+
         <button type="submit">Oluştur</button>
     </form>
+
 
     {% if qrkod %}
         <h3>İşte QR Kodunuz</h3>

@@ -13,7 +13,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Hesabınız başarıyla oluşturuldu! Artı giriş yapabilirsiniz.")
+            messages.success(request, "Hesabınız başarıyla oluşturuldu! Artık giriş yapabilirsiniz.")
             return redirect('login')
     else:
         form = UserRegisterForm()
