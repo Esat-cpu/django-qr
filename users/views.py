@@ -36,6 +36,11 @@ def profile_update(request):
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
 
         if u_form.is_valid() and p_form.is_valid():
+            if request.POST.get("remove_profile_pic"):
+                profile = request.user.profile
+                if profile.image.name != "default.jpg":
+                    profile.image.delete(save=False)
+                profile.image = "default.jpg"
             u_form.save()
             p_form.save()
 
