@@ -24,6 +24,7 @@ def register(request):
 class ProfileView(LoginRequiredMixin, generic.ListView):
     template_name = 'users/profile.html'
     context_object_name = "urls"
+    paginate_by = 8
 
     def get_queryset(self):
         return URLs.objects.filter(author=self.request.user)

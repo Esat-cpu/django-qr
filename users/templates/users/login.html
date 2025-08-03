@@ -8,10 +8,10 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-botton mb-4">Giriş Yap</legend>
+                <legend class="border-bottom mb-4">Giriş Yap</legend>
                 {{ form|crispy }}
                 <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Giriş Yap</button>
+                    <button class="btn btn-outline-info mt-2 mb-2" type="submit">Giriş Yap</button>
                 </div> 
             </fieldset>
         </form>
