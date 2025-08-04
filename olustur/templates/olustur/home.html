@@ -33,9 +33,13 @@
         function focusOnBar(event) {
             const box = document.getElementById("textbar");
 
+            if (document.activeElement === box) {
+                return;
+            }
+
             if (event.key === "." && !event.ctrlKey && !event.metaKey) {
                 event.preventDefault();
-                box.focus()
+                box.focus();
             }
         }
 
