@@ -9,9 +9,9 @@
         <label for="link">URL Adresi Girin:</label>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
             {% if special_url %}
-                <input type="text" name="url" value="{{ special_url }}" required style="flex: 1;">
+                <input type="text" name="url" id="textbar" value="{{ special_url }}" required style="flex: 1;" placeholder="Metin Girin">
             {% else %}
-                <input type="text" name="url" required style="flex: 1;">
+                <input type="text" name="url" id="textbar" required style="flex: 1;" placeholder="Metin Girin">
             {% endif %}
 
             <select name="ozellik" style="height: 100%; padding: 0.3rem;">
@@ -28,4 +28,17 @@
         <h3>İşte QR Kodunuz</h3>
         <img src="data:image/png;base64,{{ qrkod }}" alt="QR Kod">
     {% endif %}
+
+    <script>
+        function focusOnBar(event) {
+            const box = document.getElementById("textbar");
+
+            if (event.key === "." && !event.ctrlKey && !event.metaKey) {
+                event.preventDefault();
+                box.focus()
+            }
+        }
+
+        document.addEventListener('keydown', focusOnBar);
+    </script>
 {% endblock content %}
