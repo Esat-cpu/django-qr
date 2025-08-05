@@ -12,6 +12,9 @@
                 {{ form|crispy }}
                 <div class="form-group">
                     <button class="btn btn-outline-info mt-2 mb-2" type="submit">Giriş Yap</button>
+                    <small class="text-muted ml-2">
+                        <a href="{% url 'password_reset' %}">Parolanızı mı unuttunuz?</a>
+                    </small>
                 </div> 
             </fieldset>
         </form>
