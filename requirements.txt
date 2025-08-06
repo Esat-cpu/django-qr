@@ -1,6 +1,7 @@
 asgiref==3.8.1
 colorama==0.4.6
 crispy-bootstrap4==2025.6
+dj-database-url==3.0.1
 Django==5.2.3
 django-crispy-forms==2.4
 django-debug-toolbar==6.0.0
