@@ -9,7 +9,7 @@ docker-compose up --build -d
 echo "* Container'ların hazır olması bekleniyor..."
 
 attempts=0
-max_attempts=60
+max_attempts=120
 
 while [ $attempts -lt $max_attempts ]; do
     if docker-compose exec web python manage.py migrate 2> /dev/null; then
@@ -31,5 +31,15 @@ echo "* Statik dosyalar toplanıyor..."
 docker-compose exec web python manage.py collectstatic --noinput
 
 
+echo ""
+echo -n "? Django projeniz için superuser oluşturmak ister misiniz? (y/n): "
+read -r response
+
+if [[ "$response" =~ ^([Yy][Ee][Ss]|[Yy])$ ]]; then
+    docker-compose exec web python manage.py createsuperuser
+fi
+
+
+echo ""
 echo "✅ Proje hazır! http://localhost:80 adresinden erişebilirsiniz"
 echo "📊 Admin panel: http://localhost:80/admin"
