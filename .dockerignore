@@ -1,12 +1,12 @@
 
 .venv
 
-__pycache__/
+**/__pycache__/
 
 .env
 
 staticfiles/
 
-profile_pics/
+media/profile_pics/
 
 db.sqlite3
