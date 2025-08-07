@@ -6,7 +6,7 @@ docker-compose up --build -d
 echo "* Container'ların hazır olması bekleniyor..."
 
 set /a attempts=0
-set /a max_attempts=12
+set /a max_attempts=60
 
 :migration
 if %attempts% geq %max_attempts% (

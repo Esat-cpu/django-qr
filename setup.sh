@@ -9,7 +9,7 @@ docker-compose up --build -d
 echo "* Container'ların hazır olması bekleniyor..."
 
 attempts=0
-max_attempts=12
+max_attempts=60
 
 while [ $attempts -lt $max_attempts ]; do
     if docker-compose exec web python manage.py migrate 2> /dev/null; then
