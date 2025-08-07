@@ -39,6 +39,6 @@ if /i "%response%"=="yes" (
 
 
 echo.
-echo [] Proje hazir! http://localhost:80 adresinden erisebilirsiniz
-echo [] Admin panel: http://localhost:80/admin
+echo * Proje hazir! http://localhost:80 adresinden erisebilirsiniz
+echo * Admin panel: http://localhost:80/admin
 pause
