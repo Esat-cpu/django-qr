@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,12 +9,15 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from olustur.models import URLs
 
 
+logger = logging.getLogger(__name__)
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Hesabınız başarıyla oluşturuldu! Artık giriş yapabilirsiniz.")
+            logger.info(f"{request.POST.get('username')} Kullanicisi olusturuldu.")
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -46,6 +50,7 @@ def profile_update(request):
             p_form.save()
 
             messages.success(request, "Hesabınız başarıyla güncellendi!")
+            logger.info(f"{request.POST.get('username')} profilini guncelledi.")
             return redirect("profile")
     else:
         u_form = UserUpdateForm(instance=request.user)
