@@ -10,3 +10,5 @@ staticfiles/
 media/profile_pics/
 
 db.sqlite3
+
+general.log

@@ -1,5 +1,5 @@
-from io import BytesIO
 import base64
+from io import BytesIO
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
