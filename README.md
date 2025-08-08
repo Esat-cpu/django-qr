@@ -28,4 +28,21 @@ Linux veya macOS için:
 ```bash
 ./setup.sh
 ```
-> **Not:** Bu projeyi çalıştırmak için sisteminizde [Docker](https://www.docker.com/get-started) ve [Docker Compose](https://docs.docker.com/compose/install/) kurulu olmalıdır.
+> **Not:** Bu projeyi çalıştırmak için sisteminizde Docker Desktop veya ayrı olarak Docker ve Docker Compose kurulu olmalıdır.
+
+---
+
+### Container'ları durdurmak için
+```bash
+docker-compose stop
+```
+
+### Tekrar başlatmak için
+Windows için:
+```powershell
+.\start.bat
+```
+Linux veya macOS için:
+```bash
+./start.sh
+```
