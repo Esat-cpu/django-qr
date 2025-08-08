@@ -13,6 +13,17 @@ class Profile(models.Model):
         super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
+
+        width, height = img.size
+        min_dim = min(width, height)
+
+        left = (width - min_dim) / 2
+        top = (height - min_dim) / 2
+        right = (width + min_dim) / 2
+        bottom = (height + min_dim) / 2
+
+        img = img.crop((left, top, right, bottom))
+
         if img.width > 300 or img.height > 300:
-            img.thumbnail((300, 300))
+            img.thumbnail((300, 300), Image.Resampling.LANCZOS)
             img.save(self.image.path)
