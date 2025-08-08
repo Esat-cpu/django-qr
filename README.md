@@ -19,6 +19,15 @@ git clone https://github.com/Esat-cpu/django-qr.git
 cd django-qr
 ```
 
+---
+
+Öncelikle .env.example dosyasından hareketle bir .env dosyası oluşturun:
+- Django projesi için bir secret key belirleyin. DEBUG değerini ayarlayın (production ortamında False olmalı).
+- Bir PostgreSQL url'si yazın ve POSTGRES_DB, POSTGRES_USER ve POSTGRES_PASSWORD kısımlarını ona göre girin.
+- Uygulamanın e-posta yollayabilmesi için geçerli bir e-mail adresi ve e-mail uygulama parolasını girin.
+
+---
+
 Windows için:
 ```powershell
 .\setup.bat
