@@ -12,3 +12,5 @@ staticfiles/
 profile_pics/
 
 general.log
+
+*.mo

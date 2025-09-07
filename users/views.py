@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views import generic
+from django.utils.translation import gettext as _
 
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from olustur.models import URLs
@@ -16,7 +17,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Hesabınız başarıyla oluşturuldu! Artık giriş yapabilirsiniz.")
+            messages.success(request, _("Hesabınız başarıyla oluşturuldu! Artık giriş yapabilirsiniz."))
             logger.info(f"{request.POST.get('username')} Kullanicisi olusturuldu.")
             return redirect('login')
     else:
@@ -49,7 +50,7 @@ def profile_update(request):
             u_form.save()
             p_form.save()
 
-            messages.success(request, "Hesabınız başarıyla güncellendi!")
+            messages.success(request, _("Hesabınız başarıyla güncellendi!"))
             logger.info(f"{request.POST.get('username')} profilini guncelledi.")
             return redirect("profile")
     else:

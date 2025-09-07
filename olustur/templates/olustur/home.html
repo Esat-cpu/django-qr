@@ -1,31 +1,32 @@
 {% extends 'olustur/base.html' %}
+{% load i18n %}
 
-{% block title %} <title>QR Kod Oluştur</title> {% endblock title %}
+{% block title %} <title>{% trans "QR Kod Oluştur" %}</title> {% endblock title %}
 
 {% block content %}
-    <h2>QR Kod Oluştur</h2>
+    <h2>{% trans "QR Kod Oluştur" %}</h2>
     <form method="POST" action="{% url 'olustur:home' %}" style="display: flex; flex-direction: column; gap: 0.5rem;">
         {% csrf_token %}
-        <label for="link">URL Adresi Girin:</label>
+        <label for="link">{% trans "URL Adresi Girin:" %}</label>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
             {% if special_url %}
-                <input type="text" name="url" id="textbar" value="{{ special_url }}" required style="flex: 1;" placeholder="Metin Girin">
+                <input type="text" name="url" id="textbar" value="{{ special_url }}" required style="flex: 1;" placeholder="{% trans 'Metin Girin'} %">
             {% else %}
-                <input type="text" name="url" id="textbar" required style="flex: 1;" placeholder="Metin Girin">
+                <input type="text" name="url" id="textbar" required style="flex: 1;" placeholder="{% trans 'Metin Girin' %}">
             {% endif %}
 
             <select name="ozellik" style="height: 100%; padding: 0.3rem;">
-                <option value="genel">Genel</option>
-                <option value="ozel">Özel</option>
+                <option value="genel">{% trans "Genel" %}</option>
+                <option value="ozel">{% trans "Özel" %}</option>
             </select>
         </div>
 
-        <button type="submit">Oluştur</button>
+        <button type="submit">{% trans "Oluştur" %}</button>
     </form>
 
 
     {% if qrkod %}
-        <h3>İşte QR Kodunuz</h3>
+        <h3>{% trans "İşte QR Kodunuz" %}</h3>
         <img src="data:image/png;base64,{{ qrkod }}" alt="QR Kod">
     {% endif %}
 

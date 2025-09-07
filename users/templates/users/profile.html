@@ -1,10 +1,15 @@
 {% extends 'olustur/base.html' %}
+{% load i18n %}
 
-{% block title %} <title>QR Oluştur - Profil</title> {% endblock title %}
+{% block title %} <title>{% trans "QR Oluştur - Profil" %}</title> {% endblock title %}
 
 {% block content %}
 <div class="mt-4">
-    <h2 class="mb-4 text-light">Merhaba, <strong>{{ user.username }}</strong>!</h2>
+    <h2 class="mb-4 text-light">
+    {% blocktrans trimmed with username=user.username %}
+        Merhaba, <strong>{{ username }}</strong>!
+    {% endblocktrans %}
+    </h2>
 
     <!-- Profil Fotoğrafı ve Bilgiler -->
     <div class="content-section">
@@ -17,7 +22,7 @@
             <div class="media-body">
                 <h2 class="account-heading mb-1">{{ user.username }}</h2>
                 <p class="text-secondary mb-0">{{ user.email }}</p>
-                <small><a href="{% url 'profile_update' %}">Profilinizi Güncelleyin</a></small>
+                <small><a href="{% url 'profile_update' %}">{% trans "Profilinizi Güncelleyin" %}</a></small>
             </div>
         </div>
     </div>
@@ -25,9 +30,16 @@
     <br>
 
     <!-- Girdi Geçmişi Listesi -->
-    <h3 class="mb-3 text-light">Girdi Geçmişin ({{ page_obj.paginator.count }}):</h3>
+    <h3 class="mb-3 text-light">
+    {% blocktrans trimmed with count=page_obj.paginator.count %}
+        Girdi Geçmişin ({{ count }}):
+    {% endblocktrans %}
+    </h3>
 
     {% if urls %}
+        <script>
+            var delete_confirm_msg = '{% trans "Bu URL kaydını silmek istediğine emin misin?" %}';
+        </script>
         <div class="list-group">
             {% for url in urls %}
                 <div class="list-group-item list-group-item-dark mb-2 rounded shadow-sm d-flex justify-content-between align-items-center">
@@ -38,24 +50,24 @@
                     <div class="d-flex gap-2">
                         <form method="post" action="{% url 'url_delete' url.id %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bu URL kaydını silmek istediğine emin misin?');">
-                                Sil
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm(delete_confirm_msg);">
+                                {% trans "Sil" %}
                             </button>
                         </form>
-                        <a href="{% url 'olustur:home_with_form' url.id %}" class="btn btn-sm btn-primary">Tekrar Oluştur</a>
+                        <a href="{% url 'olustur:home_with_form' url.id %}" class="btn btn-sm btn-primary">{% trans "Tekrar Oluştur" %}</a>
                     </div>
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        <p class="text-secondary">Henüz herhangi bir URL girmemişsin.</p>
+        <p class="text-secondary">{% trans "Henüz herhangi bir URL girmemişsin." %}</p>
     {% endif %}
     
     <!-- Pagination Kısmı -->
     {% if is_paginated %}
         {% if page_obj.has_previous %}
-            <a class="btn btn-outline-info mb-4" href="?page=1">İlk Sayfa</a>
-            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Önceki</a>
+            <a class="btn btn-outline-info mb-4" href="?page=1">{% trans "İlk Sayfa" %}</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">{% trans "Önceki" %}</a>
         {% endif %}
 
         {% for num in page_obj.paginator.page_range %}
@@ -67,8 +79,8 @@
         {% endfor %}
 
         {% if page_obj.has_next %}
-            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Sonraki</a>
-            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Son Sayfa</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">{% trans "Sonraki" %}</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Son Sayfa" %}</a>
         {% endif %}
 
     {% endif %}

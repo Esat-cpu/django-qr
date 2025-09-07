@@ -1,19 +1,20 @@
 {% extends 'olustur/base.html' %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block title %} <title>QR Oluştur - Giriş Yap</title> {% endblock title %}
+{% block title %} <title>{% trans "QR Oluştur - Giriş Yap" %}</title> {% endblock title %}
 
 {% block content %}
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Giriş Yap</legend>
+                <legend class="border-bottom mb-4">{% trans "Giriş Yap" %}</legend>
                 {{ form|crispy }}
                 <div class="form-group">
-                    <button class="btn btn-outline-info mt-2 mb-2" type="submit">Giriş Yap</button>
+                    <button class="btn btn-outline-info mt-2 mb-2" type="submit">{% trans "Giriş Yap" %}</button>
                     <small class="text-muted ml-2">
-                        <a href="{% url 'password_reset' %}">Parolanızı mı unuttunuz?</a>
+                        <a href="{% url 'password_reset' %}">{% trans "Parolanızı mı unuttunuz?" %}</a>
                     </small>
                 </div> 
             </fieldset>
@@ -21,7 +22,7 @@
 
         <div class="border-top pt-3">
             <small class="text-muted">
-                Üye değil misiniz? <a href="{% url 'register' %}" class="ml-2">Üye Ol</a>
+                {% trans "Üye değil misiniz?" %} <a href="{% url 'register' %}" class="ml-2">{% trans "Üye Ol" %}</a>
             </small>
         </div>
     </div>

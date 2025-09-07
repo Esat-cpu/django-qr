@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-07 22:33+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: olustur/templates/olustur/404.html:4
+msgid "Sayfa Bulunamadı - 404"
+msgstr "Page Not found - 404"
+
+#: olustur/templates/olustur/404.html:8
+msgid "Sayfa Bulunamadı"
+msgstr "Page Not Found"
+
+#: olustur/templates/olustur/404.html:9
+msgid "Üzgünüz, aradığınız sayfa mevcut değil veya taşınmış olabilir."
+msgstr "Sorry, the page you are looking for does not exist or may have moved."
+
+#: olustur/templates/olustur/404.html:10
+msgid "Ana Sayfaya Dön"
+msgstr "Return to Home Page"
+
+#: olustur/templates/olustur/base.html:16
+msgid "Ana Sayfa"
+msgstr "Home"
+
+#: olustur/templates/olustur/base.html:23
+msgid "Çıkış Yap"
+msgstr "Logout"
+
+#: olustur/templates/olustur/base.html:28 users/templates/users/login.html:12
+#: users/templates/users/login.html:15
+msgid "Giriş Yap"
+msgstr "Login"
+
+#: olustur/templates/olustur/base.html:29 users/templates/users/login.html:25
+#: users/templates/users/register.html:15
+msgid "Üye Ol"
+msgstr "Sign Up"
+
+#: olustur/templates/olustur/home.html:4 olustur/templates/olustur/home.html:7
+msgid "QR Kod Oluştur"
+msgstr "Generate QR Code"
+
+#: olustur/templates/olustur/home.html:10
+msgid "URL Adresi Girin:"
+msgstr "Enter URL Address:"
+
+#: olustur/templates/olustur/home.html:15
+msgid "Metin Girin"
+msgstr "Enter Text"
+
+#: olustur/templates/olustur/home.html:19
+msgid "Genel"
+msgstr "Regular"
+
+#: olustur/templates/olustur/home.html:20
+msgid "Özel"
+msgstr "Special"
+
+#: olustur/templates/olustur/home.html:24
+msgid "Oluştur"
+msgstr "Generate"
+
+#: olustur/templates/olustur/home.html:29
+msgid "İşte QR Kodunuz"
+msgstr "Here is your QR Code"
+
+#: users/templates/users/login.html:5
+msgid "QR Oluştur - Giriş Yap"
+msgstr "Generate QR - Login"
+
+#: users/templates/users/login.html:17
+msgid "Parolanızı mı unuttunuz?"
+msgstr "Forgot password?"
+
+#: users/templates/users/login.html:25
+msgid "Üye değil misiniz?"
+msgstr "Don't have an account?"
+
+#: users/templates/users/logout.html:5
+#: users/templates/users/password_reset_complete.html:5
+#: users/templates/users/password_reset_done.html:5
+msgid "QR Oluştur"
+msgstr "Generate QR"
+
+#: users/templates/users/logout.html:9
+msgid "Başarıyla Çıkış Yaptınız"
+msgstr "You Have Successfully Logged Out"
+
+#: users/templates/users/logout.html:12
+msgid "Tekrar Giriş Yap"
+msgstr "Log in Again"
+
+#: users/templates/users/password_reset.html:5
+#: users/templates/users/password_reset_confirm.html:5
+msgid "QR Oluştur - Parolayı Değiştir"
+msgstr "Generate QR - Change Password"
+
+#: users/templates/users/password_reset.html:12
+#: users/templates/users/password_reset_confirm.html:12
+msgid "Parolayı Değiştir"
+msgstr "Change Password"
+
+#: users/templates/users/password_reset.html:15
+msgid "Parola Değiştirme İsteği"
+msgstr "Change Password Request"
+
+#: users/templates/users/password_reset_complete.html:9
+msgid "Parola değiştirildi."
+msgstr "Password changed."
+
+#: users/templates/users/password_reset_confirm.html:15
+#: users/templates/users/user_update.html:22
+msgid "Kaydet"
+msgstr "Save"
+
+#: users/templates/users/password_reset_done.html:9
+msgid "Email gönderildi."
+msgstr "Email sent."
+
+#: users/templates/users/profile.html:4
+msgid "QR Oluştur - Profil"
+msgstr "Generate QR - Profile"
+
+#: users/templates/users/profile.html:9
+#, python-format
+msgid "Merhaba, <strong>%(username)s</strong>!"
+msgstr "Hello, <strong>%(username)s</strong>!"
+
+#: users/templates/users/profile.html:25
+#: users/templates/users/user_update.html:12
+msgid "Profilinizi Güncelleyin"
+msgstr "Update Your Profile"
+
+#: users/templates/users/profile.html:34
+#, python-format
+msgid "Girdi Geçmişin (%(count)s):"
+msgstr "Input History (%(count)s):"
+
+#: users/templates/users/profile.html:41
+msgid "Bu URL kaydını silmek istediğine emin misin?"
+msgstr "Are you sure you want to delete this URL entry?"
+
+#: users/templates/users/profile.html:54
+msgid "Sil"
+msgstr "Delete"
+
+#: users/templates/users/profile.html:57
+msgid "Tekrar Oluştur"
+msgstr "Generate Again"
+
+#: users/templates/users/profile.html:63
+msgid "Henüz herhangi bir URL girmemişsin."
+msgstr "You haven't enter any URL yet."
+
+#: users/templates/users/profile.html:69
+msgid "İlk Sayfa"
+msgstr "First Page"
+
+#: users/templates/users/profile.html:70
+msgid "Önceki"
+msgstr "Previous"
+
+#: users/templates/users/profile.html:82
+msgid "Sonraki"
+msgstr "Next"
+
+#: users/templates/users/profile.html:83
+msgid "Son Sayfa"
+msgstr "Last Page"
+
+#: users/templates/users/register.html:5
+msgid "QR Oluştur - Üye Ol"
+msgstr "Generate QR - Sign Up"
+
+#: users/templates/users/register.html:12
+msgid "Üye Olun"
+msgstr "Sign Up"
+
+#: users/templates/users/register.html:23
+#, python-format
+msgid ""
+"Zaten hesabınız var mı? <a href=\"%(login_url)s\" class=\"ml-2\">Giriş Yap</"
+"a>"
+msgstr "Already have an account? <a href=\"%(login_url)s\" class=\"ml-2\">Login</a>"
+
+#: users/templates/users/user_update.html:5
+msgid "QR Oluştur - Profilinizi Güncelleyin"
+msgstr "Generate QR - Update Profile"
+
+#: users/templates/users/user_update.html:17
+msgid "Profil fotoğrafını kaldır"
+msgstr "Remove Profile Picture"
+
+#: users/views.py:20
+msgid "Hesabınız başarıyla oluşturuldu! Artık giriş yapabilirsiniz."
+msgstr "Your account has been successfully created! You can now log in."
+
+#: users/views.py:53
+msgid "Hesabınız başarıyla güncellendi!"
+msgstr "Your account has been successfully updated!"

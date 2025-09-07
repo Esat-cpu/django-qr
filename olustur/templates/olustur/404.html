@@ -1,11 +1,12 @@
 {% extends "olustur/base.html" %}
+{% load i18n %}
 
-{% block title %}<title>Sayfa Bulunamadı - 404</title>{% endblock %}
+{% block title %}<title>{% trans "Sayfa Bulunamadı - 404" %}</title>{% endblock %}
 
 {% block content %}
 <div class="text-center mt-5">
-    <h1 class="display-4">404 - Sayfa Bulunamadı</h1>
-    <p class="lead">Üzgünüz, aradığınız sayfa mevcut değil veya taşınmış olabilir.</p>
-    <a href="{% url 'olustur:home' %}" class="btn btn-primary mt-3">Ana Sayfaya Dön</a>
+    <h1 class="display-4">404 - {% trans "Sayfa Bulunamadı" %}</h1>
+    <p class="lead">{% trans "Üzgünüz, aradığınız sayfa mevcut değil veya taşınmış olabilir." %}</p>
+    <a href="{% url 'olustur:home' %}" class="btn btn-primary mt-3">{% trans "Ana Sayfaya Dön" %}</a>
 </div>
 {% endblock %}
