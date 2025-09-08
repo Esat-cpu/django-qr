@@ -1,7 +1,7 @@
 @echo off
 
 echo * Django projesi baslatiliyor...
-docker-compose up --build -d
+docker-compose up --build -d || exit /b 1
 
 echo "* Container'larin hazir olmasi bekleniyor..."
 
