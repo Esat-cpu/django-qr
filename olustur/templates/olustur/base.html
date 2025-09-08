@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 {% load i18n %}
-<html lang="tr" data-bs-theme="dark">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,20 +15,35 @@
         <div class="container">
             <a class="navbar-brand" href="{% url 'olustur:home' %}">{% trans "Ana Sayfa" %}</a>
 
-            {% if user.is_authenticated %}
-                <div class="ms-auto d-flex align-items-center gap-2">
+            <div class="ms-auto d-flex align-items-center gap-2">
+
+                <div class="me-4">
+                    <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <input type="hidden" name="language" value="tr">
+                        <button type="submit" class="badge bg-secondary border-0">TR</button>
+                    </form>
+
+                    <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <input type="hidden" name="language" value="en">
+                        <button type="submit" class="badge bg-secondary border-0">EN</button>
+                    </form>
+                </div>
+
+                {% if user.is_authenticated %}
                     <a href="{% url 'profile' %}"><span class="text-light">{{ user.username }}</span></a>
                     <form action="{% url 'logout' %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-outline-light btn-sm">{% trans "Çıkış Yap" %}</button>
                     </form>
-                </div>
-            {% else %}
-                <div class="ms-auto d-flex gap-2">
+                {% else %}
                     <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm">{% trans "Giriş Yap" %}</a>
                     <a href="{% url 'register' %}" class="btn btn-outline-light btn-sm">{% trans "Üye Ol" %}</a>
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </nav>
 
