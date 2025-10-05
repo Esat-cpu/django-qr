@@ -9,7 +9,8 @@ services:
       - .env
     depends_on:
       - db
-  
+      - memcached
+
   db:
     image: postgres:16
     container_name: postgres_qryap
@@ -19,7 +20,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  
+
   nginx:
     image: nginx:alpine
     container_name: nginx_qryap
@@ -31,6 +32,11 @@ services:
       - media_volume:/app/media
     depends_on:
       - web
+
+  memcached:
+    image: memcached:alpine
+    ports:
+      - "11211:11211"
 
 volumes:
   static_volume:

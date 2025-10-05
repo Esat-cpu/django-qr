@@ -1,9 +1,12 @@
 {% extends 'olustur/base.html' %}
 {% load i18n %}
+{% load cache %}
 
 {% block title %} <title>{% trans "QR Oluştur - Profil" %}</title> {% endblock title %}
 
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+{% cache 400 profile_page LANGUAGE_CODE user.username %}
 <div class="mt-4">
     <h2 class="mb-4 text-light">
     {% blocktrans trimmed with username=user.username %}
@@ -15,10 +18,10 @@
     <div class="content-section">
         <div class="media align-items-center">
             <img class="rounded-circle mr-3" 
-                src="{{ user.profile.image.url }}" 
-                alt="Photo" 
+                src="{{ user.profile.image.url }}"
+                alt="Photo"
                 style="width: 100px; height: 100px; object-fit: cover; border: 2px solid #ccc;">
-                
+
             <div class="media-body">
                 <h2 class="account-heading mb-1">{{ user.username }}</h2>
                 <p class="text-secondary mb-0">{{ user.email }}</p>
@@ -26,7 +29,7 @@
             </div>
         </div>
     </div>
-
+{% endcache %}
     <br>
 
     <!-- Girdi Geçmişi Listesi -->

@@ -120,6 +120,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.memcached.PyMemcacheCache",
+        "LOCATION": config("CACHE_LOCATION"),
+    }
+}
+
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
