@@ -2,6 +2,8 @@
 
 Kullanıcıdan alınan url adresini qr koda çevirip kullanıcıya sunan bir django web uygulaması.
 
+![Home Page](screenshots/en_homepage.png)
+
 ---
 
 ## Özellikler
@@ -12,6 +14,9 @@ Kullanıcıdan alınan url adresini qr koda çevirip kullanıcıya sunan bir dja
 
 ---
 
+![Home Page With QR Code](screenshots/en_homepage_with_qrcode.png)
+
+
 ## Kurulum
 
 ```bash
@@ -19,14 +24,12 @@ git clone https://github.com/Esat-cpu/django-qr.git
 cd django-qr
 ```
 
----
 
 Öncelikle .env.example dosyasından hareketle bir .env dosyası oluşturun:
 - Django projesi için bir secret key belirleyin. DEBUG değerini ayarlayın (production ortamında False olmalı).
 - Bir PostgreSQL url'si yazın ve POSTGRES_DB, POSTGRES_USER ve POSTGRES_PASSWORD kısımlarını ona göre girin.
 - Uygulamanın e-posta yollayabilmesi için geçerli bir e-mail adresi ve e-mail uygulama parolasını girin.
 
----
 
 Windows için:
 ```powershell
@@ -39,7 +42,6 @@ Linux veya macOS için:
 ```
 > **Not:** Bu projeyi çalıştırmak için sisteminizde Docker Desktop veya ayrı olarak Docker ve Docker Compose kurulu olmalıdır.
 
----
 
 ### Container'ları durdurmak için
 ```bash
@@ -55,3 +57,9 @@ Linux veya macOS için:
 ```bash
 ./start.sh
 ```
+
+---
+
+### Profil Sayfası Örneği
+
+![Profile Page](screenshots/en_profilepage.png)
